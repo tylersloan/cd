@@ -1,0 +1,45 @@
+@import '../variables';
+
+.c {
+  &-link {
+    [data-page='boat'] & {
+      color: $color-boat-primary;
+      fill: $color-boat-primary;
+    }
+
+    [data-page='car'] & {
+      color: $color-car-primary;
+      fill: $color-car-primary;
+    }
+
+    [data-page='rv'] & {
+      color: $color-rv-primary;
+      fill: $color-rv-primary;
+    }
+
+    &:hover,
+    &:focus {
+      [data-page='boat'] & {
+        color: $color-boat-dark;
+        fill: $color-boat-dark;
+      }
+
+      [data-page='car'] & {
+        color: $color-car-dark;
+        fill: $color-car-dark;
+      }
+
+      [data-page='rv'] & {
+        color: $color-rv-dark;
+        fill: $color-rv-dark;
+      }
+    }
+  }
+
+  &-white {
+    color: $white;
+  }
+
+  &-purple { color: $purple; }
+  &-light-purple { color: $light-purple; }
+}

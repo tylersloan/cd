@@ -1,0 +1,77 @@
+@import '../variables';
+
+label { color: $purple; }
+
+.label {
+  &--block {
+    margin-bottom: 0.75em;
+
+    span {
+      font-weight: 700;
+      margin-bottom: 0.25em;
+    }
+
+    &, span, .input {
+      font-size: 17px;
+      display: block;
+    }
+
+    span, input { width: 100%; }
+  }
+
+  &--float {}
+}
+
+
+.input {
+  border: 2px solid $color-form-border;
+  border-radius: 5px;
+  color: $grey-4;
+  padding: $spacing-unit * 2.5px;
+
+  &:focus {
+    border: 2px solid $purple;
+    outline: none;
+    border-radius: 5px;
+  }
+}
+
+.textarea { height: 182px; }
+
+.checkbox { // https://github.com/mdo/wtf-forms/blob/master/wtf-forms.css
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+
+    &:checked ~ .checkbox__indicator {
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzQgMzQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM0IDM0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6IzMwM0E0Mzt9PC9zdHlsZT48Zz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzAsMzRINGMtMi4yLDAtNC0xLjgtNC00VjRjMC0yLjIsMS44LTQsNC00aDI2YzIuMiwwLDQsMS44LDQsNHYxLjZjMCwwLjgtMC4zLDEuNi0wLjksMi4yTDE3LjcsMjMuMmMtMC40LDAuNC0xLDAuNC0xLjQsMGwtOS4yLTkuMmMtMC4zLTAuMy0wLjctMC41LTEuMS0wLjRjLTAuNCwwLTAuOCwwLjItMS4xLDAuNmMtMC41LDAuNi0wLjQsMS41LDAuMiwyLjFsMTAuOSwxMC45YzAuNiwwLjYsMS42LDAuNiwyLjEsMGwxNC4yLTE0LjJjMC4zLTAuMywwLjctMC40LDEuMS0wLjJjMC40LDAuMiwwLjYsMC41LDAuNiwwLjlWMzBDMzQsMzIuMiwzMi4yLDM0LDMwLDM0eiIvPjwvZz48L3N2Zz4=);
+      border: none;
+    }
+  }
+
+  span { display: block; }
+
+  &__text {
+    font-size: 14px;
+    margin-left: $spacing-unit * 1px;
+    margin-top: 2px;
+  }
+
+  &__indicator {
+    background: {
+      color: $white;
+      size: cover;
+      position: center center;
+      repeat: no-repeat;
+    }
+    border: 1px solid $purple;
+    border-radius: 3px;
+    height: 16px;
+    width: 16px;
+    user-select: none;
+  }
+}

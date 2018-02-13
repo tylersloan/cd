@@ -1,0 +1,18 @@
+@import '../variables';
+
+@for $unit from 0 through 10 {
+  .pt-#{$unit} { padding-top: $spacing-unit * ($unit * 1px); }
+  .pr-#{$unit} { padding-right: $spacing-unit * ($unit * 1px); }
+  .pb-#{$unit} { padding-bottom: $spacing-unit * ($unit * 1px); }
+  .pl-#{$unit} { padding-left: $spacing-unit * ($unit * 1px); }
+}
+
+@for $unit from 0 through 10 {
+  .mt-#{$unit} { margin-top: $spacing-unit * ($unit * 1px); }
+  .mr-#{$unit} { margin-right: $spacing-unit * ($unit * 1px); }
+  .mb-#{$unit} { margin-bottom: $spacing-unit * ($unit * 1px); }
+  .ml-#{$unit} { margin-left: $spacing-unit * ($unit * 1px); }
+}
+
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }

@@ -1,0 +1,55 @@
+@import '../variables';
+
+.button {
+  $button-border-radius: 3px;
+  $offset: 4px;
+
+  -webkit-appearance: none; -moz-appearance: none;
+  border: 2px solid $purple;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 12px 36px;
+  position: relative;
+
+  &, &:after {
+    backface-visibility: hidden;
+    transition: 250ms all ease-in-out;
+  }
+
+  &--primary {
+    background: $white;
+    color: $purple;
+
+    &:after {
+      content: '';
+      background: $purple;
+      border-radius: $button-border-radius;
+      width: calc(100% + #{$offset});
+      height: calc(100% + #{$offset});
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index:-1;
+      transform-origin: top left;
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        transform: scale(0.9) translateZ(0);
+      }
+    }
+  }
+
+  &--alt {
+    background: $purple;
+    color: $white;
+    //transform: scale(1.01);
+    //
+    //&:hover,
+    //&:focus {
+    //  transform: scale(1);
+    //}
+  }
+}

@@ -1,0 +1,25 @@
+@import '../variables';
+
+/* this class is to wrap element selectors so you can avoid using classes inside user-generated content */
+.wysiwyg {
+  $space-between-blocks: $spacing-unit * 8px;
+
+  p {
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+
+    & + p {
+      margin-top: $space-between-blocks;
+    }
+  }
+
+  h4 {
+    color: $color-headline;
+    font-size: 22px;
+    margin: {
+      top: $space-between-blocks;
+      bottom: $spacing-unit * 1px;
+    }
+  }
+}

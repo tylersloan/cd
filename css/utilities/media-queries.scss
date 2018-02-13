@@ -1,0 +1,11 @@
+@import '../variables';
+
+$one-column:  (max-width: $site-content-width);
+$two-column:  (min-width: $site-content-width + 1px);
+$full:        (min-width: $site-max-width);
+
+@mixin mq($media) {
+  @media only screen and #{$media} {
+    @content;
+  }
+}

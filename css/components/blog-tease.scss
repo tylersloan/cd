@@ -1,0 +1,7 @@
+@import '../variables';
+
+.byline {
+  &__avatar {
+    width: $spacing-unit * 4px;
+  }
+}

@@ -1,0 +1,35 @@
+$fallback-fontlist: 'Helvetica', sans-serif;
+$font-families: ('Nunito Sans': 'nunito', 'Open Sans': 'open', 'Karla': 'karla');
+$font-sizes: 16 18 22 48;
+$font-weights: 300 400 700 800i;
+$font-styles: normal italic;
+
+@each $family, $slug in $font-families {
+  .ff-#{$slug} {
+    font-family: $family, $fallback-fontlist;
+  }
+}
+
+@each $size in $font-sizes {
+  .fz-#{$size} {
+    font-size: $size * 1px;
+  }
+}
+
+.fz-22--at-two-column {
+  @include mq($two-column) {
+    font-size: 22px;
+  }
+}
+
+@each $weight in $font-weights {
+  .fw-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+@each $style in $font-styles {
+  .fs-#{$style} {
+    font-style: $style;
+  }
+}

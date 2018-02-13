@@ -1,0 +1,60 @@
+/*
+* 0. Numbers & widths
+* 1. Color variables
+* 2. Vehicle-specific brand colors
+* 3. Color proxies
+* 4. Timing
+*/
+
+/* 0. */
+$site-max-width: 1160px;
+$site-content-width: 760px;
+$spacing-unit: 6;
+
+/* 1. */
+$grey-1:                   rgba(128, 130, 146, 0.1);
+$grey-2:                   rgba(128, 130, 146, 0.6);
+$grey-3:                   #586372;
+$grey-4:                   #808292;
+$grey-5:                   #b3b4bd;
+
+$white:                    #FFFFFF;
+$purple:                   #303661;
+$light-purple:             #616379;
+$red:                      #c03421;
+$yellow:                   #ebd351;
+
+/* 2. */
+$color-admin-primary:      $purple;
+
+$color-boat-primary:       #5470e1;
+$color-boat-accent:        #e88469;
+$color-boat-dark:          #3d3fb2;
+$color-boat-highlight:     rgba($color-boat-primary, 0.2);
+$color-boat-hover:         $color-boat-primary;
+
+$color-car-primary:        #eb5d51;
+$color-car-accent:         #6297f7;
+$color-car-dark:           #c93544;
+$color-car-highlight:      rgba($color-car-primary, 0.2);
+$color-car-hover:          $color-car-primary;
+
+$color-rv-primary:         #1dae7a;
+$color-rv-accent:          #e5b951;
+$color-rv-dark:            #227e5a;
+$color-rv-highlight:       rgba($color-rv-primary, 0.2);
+$color-rv-hover:           $color-rv-primary;
+
+/* 3. */
+$color-nav-link:           $purple;
+$color-headline:           $purple;
+$color-paragraph:          $grey-3;
+$color-error:              $red;
+$color-review:             $yellow;
+$color-form-border:        $grey-5;
+
+$border-light:             #ecedf3;
+$border-dark:              #d7d7d7;
+
+/* 4. */
+$timing-short: 175ms;

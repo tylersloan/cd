@@ -1,0 +1,36 @@
+.b {
+  &b {
+    border-bottom-style: solid;
+
+    &w {
+      &-2 {
+        border-bottom-width: 2px;
+      }
+    }
+
+    &c {
+      &-l {
+        border-bottom-color: $border-light;
+      }
+
+      &-d {
+        border-bottom-color: $border-dark;
+      }
+    }
+  }
+}
+
+.bordered {
+  &--solid { border-style: solid; }
+  &--light { border-color: $border-light; }
+}
+
+// border-radius
+.bdrs {
+  &-2 { border-radius: $spacing-unit * 2px; }
+
+  &--circle {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

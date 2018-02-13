@@ -1,0 +1,21 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  &--no-style {
+    list-style: none;
+  }
+
+  &--inline {
+    &__item {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:not(:first-of-type) {
+        margin-left: 1em;
+      }
+    }
+  }
+}

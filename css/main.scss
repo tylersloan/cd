@@ -1,0 +1,288 @@
+@import 'variables';
+@import 'utilities/media-queries';
+@import 'normalize';
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html {
+  color: #222;
+  font: {
+    family: 'Nunito Sans', sans-serif;
+    size: 1em;
+  }
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  transition: $timing-short all ease-in-out;
+}
+
+p {
+  color: $color-paragraph;
+  margin: 0;
+}
+
+.headline {
+  color: $color-headline;
+  margin: 0;
+}
+
+.h1 {
+  &--blog-title {
+    $base-size: 48px;
+    @include mq($one-column) {
+      font-size: $base-size / 2;
+    }
+
+    @include mq($two-column) {
+      font-size: $base-size / 1.75;
+    }
+
+    @include mq($full) {
+      font-size: $base-size;
+    }
+  }
+}
+
+.highlight {
+  $overlap-space: 3px;
+  display: inline-block;
+  font-weight: 700;
+  margin-left: -$overlap-space;
+  overflow: hidden;
+  padding-left: $overlap-space;
+
+  [data-page='boat'] & {
+    color: $color-boat-primary;
+    fill: $color-boat-primary;
+  }
+
+  [data-page='car'] & {
+    color: $color-car-primary;
+    fill: $color-car-primary;
+  }
+
+  [data-page='rv'] & {
+    color: $color-rv-primary;
+    fill: $color-rv-primary;
+  }
+
+  span {
+    position: relative;
+
+    &:after {
+      border-radius: 1px;
+      bottom: 0;
+      content: '';
+      height: 40%;
+      position: absolute;
+      left: -$overlap-space;
+      transition: $timing-short all ease-in-out;
+      width: calc(100% + (#{$overlap-space} * 3));
+
+      [data-page='boat'] & { background: $color-boat-highlight; }
+      [data-page='car'] & { background: $color-car-highlight; }
+      [data-page='rv'] & { background: $color-rv-highlight; }
+    }
+  }
+
+  .icon--arrow {
+    margin-left: 15px;
+    transition: $timing-short all ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+    span {
+      &:after {
+        transform: translateX(-100%);
+      }
+    }
+
+    .icon--arrow {
+      transform: translateX(-2px);
+    }
+  }
+}
+
+.dd-button { // this has a triangle to the side
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    color: inherit;
+    height: 0;
+    width: 0;
+    margin-left: 16px;
+    border: {
+      left: 4px solid transparent;
+      right: 4px solid transparent;
+      top: 7px solid;
+    }
+  }
+
+  &.dd-opened {
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.container {
+  max-width: $site-max-width;
+  margin: 0 auto;
+
+  &--padded {
+    $space: $spacing-unit * 4px;
+    margin: 0 auto;
+    max-width: $site-max-width + $space;
+    padding: {
+      left: $space / 2;
+      right: $space / 2;
+    }
+  }
+}
+
+$content-width: percentage($site-content-width/$site-max-width);
+$sidebar-width: calc(100% - #{$content-width});
+
+.content {
+  @include mq($two-column) {
+    width: $content-width;
+  }
+}
+
+.sidebar {
+  @include mq($two-column) {
+    width: $sidebar-width;
+    //margin-left: $spacing-unit * 20px;
+  }
+}
+
+.hero {
+  background: {
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  height: 200px;
+  overflow: hidden;
+  width: 100%;
+
+  &__text {
+    color: $white;
+    font-size: 48px;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &--at-two-column {
+    @include mq($two-column) {
+      display: flex;
+    }
+  }
+
+  &--at-full {
+    @include mq($full) {
+      display: flex;
+    }
+  }
+}
+
+.flex-item {
+  &__half {
+    @include mq($two-column) {
+      width: 50%;
+
+      &:nth-child(odd) { padding-right: $spacing-unit * 3px; }
+      &:nth-child(even) { padding-left: $spacing-unit * 3px; }
+    }
+  }
+}
+
+.align {
+  &--center {
+    align-items: center;
+  }
+}
+
+.justify {
+  &--between {
+    justify-content: space-between;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+}
+
+.shaded {
+  a { color: $white; }
+
+  &--brand {
+    transition: 200ms background linear;
+
+    [data-page='admin'] & { background: $color-admin-primary; }
+    [data-page='boat'] & { background: $color-boat-primary; }
+    [data-page='car'] & { background: $color-car-primary; }
+    [data-page='rv'] & { background: $color-rv-primary; }
+  }
+}
+
+/* ==========================================================================
+   Component styles
+   ========================================================================== */
+
+@import 'components/header';
+@import 'components/list';
+@import 'components/blog-tease';
+@import 'components/wysiwyg';
+@import 'components/inputs';
+@import 'components/buttons';
+
+/* ==========================================================================
+   Utility classes
+   ========================================================================== */
+
+@import 'utilities/fonts';
+@import 'utilities/spacing';
+@import 'utilities/hides';
+@import 'utilities/clearfix';
+@import 'utilities/selections';
+@import 'utilities/images';
+@import 'utilities/text';
+@import 'utilities/borders';
+@import 'utilities/display';
+@import 'utilities/colors';
+@import 'utilities/width';
+
+/* ==========================================================================
+   Plugins
+   ========================================================================== */
+
+@import 'plugins/nice-select';
+
+/* ==========================================================================
+   Print Basics
+   ========================================================================== */
+
+@import 'print';

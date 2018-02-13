@@ -1,0 +1,173 @@
+<!doctype html>
+<html data-page='admin'>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Boat Covers Direct</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla|Nunito+Sans:300,400,700,800i?text=Boat%20Covers%20Direct|Open+Sans" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class='pt-3 pb-3  shaded shaded--brand'>
+        <div class='container--padded'>
+          <nav class='flex'>
+            <ul class='list--inline'>
+              <li class='list--inline__item fz-18 fw-700 c-white'>Covers Direct Admin</li>
+            </ul>
+            <ul class='list--inline ml-auto flex'>
+              <li class='list--inline__item'><a href='/new-order' class='fz-18 fw-700 js-page-nav-item'>New Order</a></li>
+              <li class='list--inline__item'><a href='/orders' class='fz-18 fw-300 js-page-nav-item'>Orders</a></li>
+              <li class='list--inline__item'><a href='/reviews' class='fz-18 fw-300 js-page-nav-item'>Reviews</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class='mb-7'>
+      <div class='container--padded'>
+        <div class='content'>
+          <h1 class='headline fz-48'>Managing Phone Orders</h1>
+        </div>
+        <div class='flex--at-full'>
+          <div class='content'>
+            <div class='flex bb bbc-d bbw-2 pb-2 mb-10 mt-5'>
+              <div class='fz-22 fw-300'>Order Confirmation</div>
+              <div class='fz-22 fw-300 ml-8'>Shipping &amp; Billing</div>
+              <div class='fz-22 fw-300 ml-8'>Products</div>
+              <div class='fz-22 fw-300 ml-8'>Actions</div>
+            </div>
+            <form class='form w-80p bb bbw-2 bbc-l'>
+              <div class='mb-5'>
+                <label class='label--block w-60p'>
+                  <span>Customer Email</span>
+                  <input type='text' class='input' placeholder='email address'>
+                </label>
+                <div class='flex'>
+                  <label class='label--block w-50p pr-2'>
+                    <span>Phone</span>
+                    <input type='text' class='input' placeholder='1-(555)-555-5555'>
+                  </label>
+                  <label class='label--block w-50p pl-2'>
+                    <span>Second Phone</span>
+                    <input type='text' class='input' placeholder='1-(555)-555-5555'>
+                  </label>
+                </div>
+                <label class='label--block w-100p'>
+                  <span>Order Information</span>
+                  <textarea class='input textarea w-100p' placeholder='Needed inofrmation here...'></textarea>
+                </label>
+              </div>
+              <div>
+                <label class='label--block' for='select1'><span>Customer Email</span></label>
+                <select id='select1' class='w-50p label--block js-nice-select'>
+                  <option value='fedex'>Fedex All Inclusive</option>
+                  <option value='other-1'>Other 1</option>
+                  <option value='other-2'>Other 2</option>
+                </select>
+                <label class='label--block w-50p'>
+                  <span>Shipping Cost</span>
+                  <input type='text' class='input' placeholder='$x.xx'>
+                </label>
+                <label class='label--block w-50p'>
+                  <span>Price Notes</span>
+                  <input type='text' class='input' placeholder='discounts, etc.'>
+                </label>
+                <label class='label--block w-100p'>
+                  <span>Order Notes</span>
+                  <textarea class='input textarea w-100p' placeholder='Needed inofrmation here...'></textarea>
+                  <small class='d-b w-50p c-light-purple mt-1'>These notes will be emailed in the order confirmation email.</small>
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class='sidebar ml-5'>
+            <div class='pt-5 pb-5 pl-5 pr-5 mb-3  bordered--solid bordered--light bdrs-2'>
+              <p class='fz-22 fw-300 c-light-purple mb-4'>Tracking</p>
+              <label class='label--block w-100p'>
+                <span>Tracking Code</span>
+                <input type='text' class='input' placeholder='type code'>
+                <small class='d-b w-80p c-light-purple mt-1'>If tracking code is set then email will be sent when saved.</small>
+              </label>
+              <label class='label--block w-100p'>
+                <span>BCC Email</span>
+                <input type='text' class='input' placeholder='email address'>
+              </label>
+              <label class="checkbox flex align--center">
+                <input type="checkbox">
+                <span class="checkbox__indicator"></span>
+                <span class='checkbox__text'>Send eKomi BCC</span>
+              </label>
+            </div>
+            <div class='pt-5 pb-5 pl-5 pr-5 bordered--solid bordered--light bdrs-2'>
+              <p class='fz-22 fw-300 c-light-purple mb-4'>Saving</p>
+              <label class="checkbox flex align--center">
+                <input type="checkbox">
+                <span class="checkbox__indicator"></span>
+                <span class='checkbox__text'>In Stock</span>
+              </label>
+              <label class="checkbox flex align--center">
+                <input type="checkbox">
+                <span class="checkbox__indicator"></span>
+                <span class='checkbox__text'>CDC Took Offline</span>
+              </label>
+              <label class="checkbox flex align--center">
+                <input type="checkbox">
+                <span class="checkbox__indicator"></span>
+                <span class='checkbox__text'>Processed</span>
+              </label>
+              <div class='mt-2 mb-2'>
+                <p class='fw-700 c-purple'>Rush</p>
+                <div class='flex align--center'>
+                  <label class="checkbox flex align--center mr-2">
+                    <input type="radio" id='yes' name='rush-radio'>
+                    <span class="checkbox__indicator"></span>
+                    <span class='checkbox__text'>Yes</span>
+                  </label>
+                  <label class="checkbox flex align--center">
+                    <input type="radio" id='no' name='rush-radio'>
+                    <span class="checkbox__indicator"></span>
+                    <span class='checkbox__text'>No</span>
+                  </label>
+                </div>
+              </div>
+              <button class='button button--primary'>Save</button>
+            </div>
+            <div class='pt-5 pb-5 pl-5 pr-5 bordered--solid bordered--light bdrs-2'>
+              <p class='fz-22 fw-300 c-light-purple mb-4'>Payment</p>
+              <label class="checkbox flex align--center">
+                <input type="checkbox">
+                <span class="checkbox__indicator"></span>
+                <span class='checkbox__text'>Email on Checkout</span>
+              </label>
+              <label class="checkbox flex align--center">
+                <input type="checkbox">
+                <span class="checkbox__indicator"></span>
+                <span class='checkbox__text'>Email w/ Order Notes</span>
+              </label>
+
+              <div class='mt-2'>
+                <button class='button button--alt'>Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+        src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+    <script src="js/plugins/jquery.nice-select.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+@import '../variables';
+
+.header {
+  &__row {
+    padding: {
+      bottom: 1em;
+      top: 1em;
+    }
+  }
+}
+
+.logo {
+  &__img {
+    margin-top: $spacing-unit * -1px;
+  }
+
+  &__text {
+    color: #a9abbc;
+    font-size: 1em;
+    margin: {
+      top: 0;
+      bottom: 0;
+      left: 1em;
+    }
+  }
+}
+
+.nav-link {
+  color: $color-nav-link;
+  fill: $color-nav-link;
+
+  &:hover, &:focus {
+    [data-page='boat'] & {
+      color: $color-boat-hover;
+      fill: $color-boat-hover;
+    }
+
+    [data-page='car'] & {
+      color: $color-car-hover;
+      fill: $color-car-hover;
+    }
+
+    [data-page='rv'] & {
+      color: $color-rv-hover;
+      fill: $color-rv-hover;
+    }
+  }
+}

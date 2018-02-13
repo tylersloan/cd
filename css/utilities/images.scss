@@ -1,0 +1,34 @@
+.img {
+  &--full {
+    display: block;
+    width: 100%;
+  }
+}
+
+$icon: icon;
+
+.#{$icon} {
+  &--share {
+    $dimension: 29px;
+
+    height: $dimension;
+    width: $dimension;
+
+    [data-page='boat'] & { background: $color-boat-primary; }
+    [data-page='car'] & { background: $color-car-primary; }
+    [data-page='rv'] & { background: $color-rv-primary; }
+
+    &:hover,
+    &:focus {
+      [data-page='boat'] & { background: $color-boat-dark; }
+      [data-page='car'] & { background: $color-car-dark; }
+      [data-page='rv'] & { background: $color-rv-dark; }
+    }
+
+    svg {
+      fill: white;
+      height: 80%;
+      width: 80%;
+    }
+  }
+}
