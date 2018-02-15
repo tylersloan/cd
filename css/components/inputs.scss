@@ -2,38 +2,106 @@
 
 label { color: $purple; }
 
-.label {
-  &--block {
-    margin-bottom: 0.75em;
+$label: label;
 
-    span {
-      font-weight: 700;
+[class*='label--'] {
+  display: block;
+  //margin-bottom: $spacing-unit * 2.5px;
+  position: relative;
+}
+
+.#{$label} {
+  &__label { font-size: 17px; }
+
+  &--block {
+    .#{$label}__label {
+      display: block;
+      font: {
+        weight: 700;
+      };
       margin-bottom: 0.25em;
     }
-
-    &, span, .input {
-      font-size: 17px;
-      display: block;
-    }
-
-    span, input { width: 100%; }
   }
 
-  &--float {}
+  &--float {
+    .#{$label}__label {
+      position: absolute;
+      top: 50%;
+      left: 17px;
+      transform:  translateY(-50%);
+      transform-origin: top left;
+      transition: 200ms all ease;
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(calc(-100% - 7px)) scale(0.75); }
+      100% { opacity: 1; transform: translateY(-100%) scale(0.75); }
+    }
+
+    .input:focus,
+    .input.isDirty {
+      + .#{$label}__label {
+        animation: {
+          name: slideDown;
+          duration: 400ms;
+          fill-mode: forwards;
+        };
+        //transform: scale(0.75) translateX(23px) translateY(calc(-100% - 14px));
+      }
+    }
+  }
 }
 
 
+$input-multiplier: 2.5px;
 .input {
   border: 2px solid $color-form-border;
   border-radius: 5px;
   color: $grey-4;
-  padding: $spacing-unit * 2.5px;
+  display: block;
+  font: {
+    family: "Open Sans";
+    size: 17px;
+  }
+
+  .#{$label}--block & {
+    padding: $spacing-unit * $input-multiplier;
+  }
+
+  .#{$label}--float & {
+    padding:
+      $spacing-unit * ($input-multiplier + 1)
+      $spacing-unit * $input-multiplier
+      $spacing-unit * ($input-multiplier - 1);
+  }
+
+  [class*='label'] & { width: 100%; }
 
   &:focus {
     border: 2px solid $purple;
     outline: none;
     border-radius: 5px;
   }
+}
+
+.label--block .input--dollar-sign {
+  background: {
+    image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6YT0iaHR0cDovL25zLmFkb2JlLmNvbS9BZG9iZVNWR1ZpZXdlckV4dGVuc2lvbnMvMy4wLyIgICB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjcuNXB4IiBoZWlnaHQ9IjEzLjlweCIgdmlld0JveD0iMCAwIDcuNSAxMy45IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA3LjUgMTMuOTsiICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4gIC5zdDB7ZmlsbDojODA4MjkyO308L3N0eWxlPjxkZWZzPjwvZGVmcz48Zz4gIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik03LjUsOS4yYzAsMC44LTAuMywxLjQtMC44LDEuOWMtMC42LDAuNS0xLjQsMC44LTIuNCwwLjl2MS45SDMuMlYxMmMtMC42LDAtMS4yLDAtMS44LTAuMSAgICBjLTAuNi0wLjEtMS4xLTAuMi0xLjQtMC40di0xLjNjMC41LDAuMiwxLDAuNCwxLjYsMC41czEuMSwwLjIsMS42LDAuMlY3LjJDMi4xLDYuOSwxLjMsNi41LDAuOCw2QzAuNCw1LjUsMC4yLDQuOSwwLjIsNC4xICAgIGMwLTAuNywwLjMtMS4zLDAuOC0xLjhzMS4zLTAuNywyLjItMC44VjBoMS4xdjEuNWMxLDAsMiwwLjIsMi45LDAuNkw2LjgsMy4yQzYsMi45LDUuMiwyLjcsNC4zLDIuNnYzLjZjMC45LDAuMywxLjUsMC41LDIsMC44ICAgIGMwLjQsMC4zLDAuOCwwLjYsMSwwLjlDNy40LDguMyw3LjUsOC43LDcuNSw5LjJ6IE0xLjYsNC4xYzAsMC40LDAuMSwwLjgsMC40LDFzMC43LDAuNSwxLjMsMC43VjIuNkMyLjcsMi43LDIuMywyLjksMiwzLjIgICAgQzEuNywzLjQsMS42LDMuNywxLjYsNC4xeiBNNi4xLDkuM2MwLTAuNC0wLjEtMC43LTAuNC0xQzUuNSw4LjEsNSw3LjgsNC4zLDcuNnYzLjJDNS41LDEwLjYsNi4xLDEwLjEsNi4xLDkuM3oiLz48L2c+PC9zdmc+);
+    repeat: no-repeat;
+    size: auto 14px;
+    position: ($spacing-unit * $input-multiplier) 18px;
+  }
+  padding-left: calc((#{$spacing-unit} * #{$input-multiplier}) + 11px);
+}
+
+.label--block .input--search-box {
+  background: {
+    image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTMgMTMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEzIDEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6IzI2MjYyNjt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIsMTNjLTAuMywwLTAuNS0wLjEtMC43LTAuM0w4LjYsMTBjLTAuOSwwLjYtMiwxLTMuMSwxQzIuNSwxMSwwLDguNSwwLDUuNVMyLjUsMCw1LjUsMFMxMSwyLjUsMTEsNS41YzAsMS4xLTAuMywyLjItMSwzLjFsMi43LDIuN2MwLjIsMC4yLDAuMywwLjQsMC4zLDAuN0MxMywxMi41LDEyLjUsMTMsMTIsMTN6IE01LjUsMkMzLjYsMiwyLDMuNiwyLDUuNVMzLjYsOSw1LjUsOVM5LDcuNCw5LDUuNVM3LjQsMiw1LjUsMnoiLz48L3N2Zz4=);
+    repeat: no-repeat;
+    size: auto 14px;
+    position: ($spacing-unit * $input-multiplier) 18px;
+  }
+  padding-left: calc(#{$spacing-unit} * 6px);
 }
 
 .textarea { height: 182px; }

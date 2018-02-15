@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product</title>
+</head>
+<body>
+<div id='body'>
+  <div class='flex'>
+    <button class='button button--primary'>Add Product</button>
+    <div class='ml-auto flex align--center'>
+      <button class='button button--primary mr-2' data-action='contract-products'>Contract</button>
+      <span>or</span>
+      <button class='button button--link button--negative-action ml-1'>clear all</button>
+    </div>
+  </div>
+  <div class='w-100p mt-4'>
+   <div class='pt-4 pb-4 pl-3 pr-3 mb-3 bordered--solid bordered--medium bdrs-2'>
+     <div class='mb-3 flex align--start'>
+       <div class='h3 fz-32 fw-300 c-light-purple'>Product</div>
+       <div class='ml-auto'>
+         <button class='button button--link button--negative-action'>cancel</button>
+       </div>
+     </div>
+     <div class='w-80p'>
+       <div class='flex row'>
+         <label class='label--block w-60p mr-2'>
+           <span class='label__label'>Part</span>
+           <input type='text' class='input' placeholder='1234-1234-123456'>
+         </label>
+         <label class='label--block w-40p ml-2'>
+           <span class='label__label'>Color</span>
+           <input type='text' class='input' placeholder='Color Name'>
+         </label>
+       </div>
+       <div class='js-contract-zone mt-3'>
+         <label class='label--block w-60p pr-2  row'>
+           <span class='label__label'>Material</span>
+           <input type='text' class='input' placeholder='Tyvek 8k'>
+         </label>
+         <div class='flex  row'>
+           <label class='label--block w-60p mr-2'>
+             <span class='label__label'>Price</span>
+             <input type='text' class='input input--dollar-sign' placeholder='XXX.XX'>
+           </label>
+           <label class='label--block w-40p ml-2'>
+             <span class='label__label'>Quantity</span>
+             <input type='text' class='input' placeholder='How many?'>
+           </label>
+         </div>
+         <label class='label--block w-100p row'>
+           <span class='label__label'>Details</span>
+           <textarea class='input textarea w-100p' placeholder='Lorem ipsum dolor laudantium, totam rem luptatem.'></textarea>
+         </label>
+       </div>
+     </div>
+   </div>
+  </div>
+</div>
+</body>
+</html>

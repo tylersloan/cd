@@ -1,0 +1,15 @@
+@import '../variables';
+@import '../utilities/media-queries';
+
+.product {
+  @include mq($two-column) {
+    &__left {
+      margin-right: $spacing-unit * 4px;
+      width: percentage(365/1160);
+    }
+
+    &__right {
+      width: percentage(480/1160);
+    }
+  }
+}

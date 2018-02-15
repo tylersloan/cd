@@ -56,6 +56,8 @@ p {
 
 .highlight {
   $overlap-space: 3px;
+  background: transparent;
+  border: none;
   display: inline-block;
   font-weight: 700;
   margin-left: -$overlap-space;
@@ -77,6 +79,11 @@ p {
     fill: $color-rv-primary;
   }
 
+  [data-page='admin'] & {
+    color: $color-admin-primary;
+    fill: $color-admin-primary;
+  }
+
   span {
     position: relative;
 
@@ -93,6 +100,7 @@ p {
       [data-page='boat'] & { background: $color-boat-highlight; }
       [data-page='car'] & { background: $color-car-highlight; }
       [data-page='rv'] & { background: $color-rv-highlight; }
+      [data-page='admin'] & { background: $color-admin-highlight; }
     }
   }
 
@@ -167,8 +175,13 @@ $sidebar-width: calc(100% - #{$content-width});
 
 .sidebar {
   @include mq($two-column) {
-    width: $sidebar-width;
-    //margin-left: $spacing-unit * 20px;
+    &--width {
+      width: $sidebar-width;
+    }
+
+    &--margin {
+      margin-left: $spacing-unit * 20px;
+    }
   }
 }
 
@@ -186,6 +199,10 @@ $sidebar-width: calc(100% - #{$content-width});
     color: $white;
     font-size: 48px;
   }
+}
+
+.row {
+  & + & { margin-top: $spacing-unit * 3px; }
 }
 
 .flex {
@@ -220,9 +237,8 @@ $sidebar-width: calc(100% - #{$content-width});
 }
 
 .align {
-  &--center {
-    align-items: center;
-  }
+  &--center { align-items: center; }
+  &--start { align-items: flex-start; }
 }
 
 .justify {
@@ -258,6 +274,10 @@ $sidebar-width: calc(100% - #{$content-width});
 @import 'components/wysiwyg';
 @import 'components/inputs';
 @import 'components/buttons';
+@import 'components/orders-table';
+@import 'components/reviews-table';
+@import 'components/modal';
+@import 'components/product-review';
 
 /* ==========================================================================
    Utility classes

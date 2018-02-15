@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shipping & Billing</title>
+</head>
+<body>
+  <div id='body'>
+    <form class='form w-80p'>
+      <div class='mb-5'>
+        <label class='label--block row'><span class='label__label'>Shipping Address</span></label>
+        <div class='flex row'>
+          <label class='label--float w-50p mr-2'>
+            <input type='text' class='input'>
+            <span class='label__label'>Full Name/Company</span>
+          </label>
+          <div class='w-50p ml-2'></div>
+        </div>
+        <div class='flex row'>
+          <label class='label--float w-50p mr-2'>
+            <input type='text' class='input'>
+            <span class='label__label'>Address Line One</span>
+          </label>
+          <label class='label--float w-50p ml-2'>
+            <input type='text' class='input'>
+            <span class='label__label'>Address Line Two</span>
+          </label>
+        </div>
+        <div class='flex row'>
+          <label class='label--float w-50p mr-2'>
+            <input type='text' class='input'>
+            <span class='label__label'>City</span>
+          </label>
+          <div class='ml-2 w-50p flex'>
+            <select id='state' class='mr-2 w-30p label--float js-nice-select'>
+              <option value='alabama'>AL</option>
+              <option value='arizona'>AR</option>
+              <option value='arkansas'>AK</option>
+            </select>
+            <label class='label--float w-70p ml-2'>
+              <input type='text' class='input'>
+              <span class='label__label'>Zip Code</span>
+            </label>
+          </div>
+        </div>
+        <div class='flex row'>
+          <label class='label--float w-50p mr-2'>
+            <input type='text' class='input'>
+            <span class='label__label'>Country</span>
+          </label>
+          <label class='label--float w-50p ml-2'>
+            <input type='text' class='input'>
+            <span class='label__label'>Phone (Optional)</span>
+          </label>
+        </div>
+        <label class="checkbox flex align--center row">
+          <input type="checkbox">
+          <span class="checkbox__indicator"></span>
+          <span class='checkbox__text label__label'>Billing same as shipping</span>
+        </label>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

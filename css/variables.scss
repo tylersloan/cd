@@ -26,6 +26,7 @@ $yellow:                   #ebd351;
 
 /* 2. */
 $color-admin-primary:      $purple;
+$color-admin-highlight:    rgba($color-admin-primary, 0.2);
 
 $color-boat-primary:       #5470e1;
 $color-boat-accent:        #e88469;
@@ -54,6 +55,7 @@ $color-review:             $yellow;
 $color-form-border:        $grey-5;
 
 $border-light:             #ecedf3;
+$border-medium:            $grey-5;
 $border-dark:              #d7d7d7;
 
 /* 4. */

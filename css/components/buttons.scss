@@ -1,20 +1,41 @@
 @import '../variables';
 
-.button {
-  $button-border-radius: 3px;
+$button: button;
+
+button {
+  -webkit-appearance: none; -moz-appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.#{$button} {
+  $button-border-radius: 5px;
   $offset: 4px;
 
-  -webkit-appearance: none; -moz-appearance: none;
-  border: 2px solid $purple;
-  border-radius: $button-border-radius;
-  cursor: pointer;
-  font-weight: 700;
-  padding: 12px 36px;
-  position: relative;
+  &:not(.#{$button}--link) {
+    border: 2px solid $purple;
+    border-radius: $button-border-radius;
+    font-weight: 700;
+    padding: $spacing-unit * 2.5px $spacing-unit * 6px;
+  }
 
   &, &:after {
     backface-visibility: hidden;
     transition: 250ms all ease-in-out;
+  }
+
+  &--link {
+    border: none;
+    border-bottom: 1px solid;
+    line-height: 1;
+    padding: 0;
+  }
+
+  &--negative-action {
+    &:hover,
+    &:focus {
+      color: $color-error;
+    }
   }
 
   &--primary {
@@ -34,6 +55,43 @@
       transform-origin: top left;
     }
 
+    [data-page='boat'] & {
+      color: $color-boat-primary;
+      border-color: $color-boat-primary;
+
+      &:after {
+        background: $color-boat-primary;
+      }
+    }
+
+    [data-page='car'] & {
+      color: $color-car-primary;
+      border-color: $color-car-primary;
+
+      &:after {
+        background: $color-car-primary;
+      }
+    }
+
+    [data-page='rv'] & {
+      color: $color-rv-primary;
+      border-color: $color-rv-primary;
+
+      &:after {
+        background: $color-rv-primary;
+      }
+    }
+
+    [data-page='admin'] & {
+      color: $color-admin-primary;
+      border-color: $color-admin-primary;
+
+      &:after {
+        background: $color-admin-primary;
+      }
+    }
+
+
     &:hover,
     &:focus {
       &:after {
@@ -51,5 +109,25 @@
     //&:focus {
     //  transform: scale(1);
     //}
+
+    [data-page='boat'] & {
+      background: $color-boat-primary;
+      border-color: $color-boat-primary;
+    }
+
+    [data-page='car'] & {
+      background: $color-car-primary;
+      border-color: $color-car-primary;
+    }
+
+    [data-page='rv'] & {
+      background: $color-rv-primary;
+      border-color: $color-rv-primary;
+    }
+
+    [data-page='admin'] & {
+      background: $color-admin-primary;
+      border-color: $color-admin-primary;
+    }
   }
 }

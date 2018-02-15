@@ -23,6 +23,7 @@
 .bordered {
   &--solid { border-style: solid; }
   &--light { border-color: $border-light; }
+  &--medium { border-color: $border-medium; }
 }
 
 // border-radius

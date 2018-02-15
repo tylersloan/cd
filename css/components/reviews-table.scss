@@ -1,0 +1,70 @@
+@import '../variables';
+
+.reviews-col-1 {
+  width: percentage(380/1140);
+}
+
+.reviews-col-2 {
+  width: percentage(200/1140);
+}
+
+.reviews-col-3 {
+  width: percentage(200/1140);
+}
+
+.reviews-col-4 {
+  width: percentage(280/1140);
+}
+
+.reviews-col-5 {
+  width: percentage(80/1140);
+}
+
+.review-star {
+  fill: rgba($yellow, 0.2);
+
+  &--interactive {
+    cursor: pointer;
+  }
+
+  &--small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--large {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@for $i from 1 through 5 {
+  [data-stars='#{$i}'] {
+    .review-star {
+      &:nth-child(-n+#{$i}) {
+        fill: $yellow;
+      }
+    }
+  }
+}
+
+.review-modal {
+  &__col-1 {
+    width: percentage(260/650);
+  }
+
+  &__col-2 {
+    width: percentage(205/650);
+  }
+
+  &__col-3 {
+    width: percentage(185/650);
+  }
+}
+
+.review-response-field,
+.response-button {
+  &:not(.is-visible) {
+    display: none;
+  }
+}
